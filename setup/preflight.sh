@@ -11,7 +11,7 @@ fi
 . /etc/os-release
 
 # Check that we are running on Ubuntu 22.04 LTS (or 22.04.xx).
-if [ "${ID:-}" != "ubuntu" ] || [ "${VERSION_ID:-}" != "22.04" ]; then
+if [ "${MIAB_DISABLE_SUPPORT_CHECK:-}" != "true" ] && { [ "${ID:-}" != "ubuntu" ] || [ "${VERSION_ID:-}" != "22.04" ]; }; then
 	echo "Mail-in-a-Box only supports being installed on Ubuntu 22.04, sorry. You are running:"
 	echo
 	echo "${ID:-"Unknown linux distribution"} ${VERSION_ID:-}"
